@@ -2,8 +2,8 @@
 
 const strings = {
   ky: {
-    skip: "Мазмунга өтүү", language: "Интерфейстин тили", catalog: "Каталог", cart: "Себет", demo: "Демо-каталог",
-    heroText: "Үйүңүзгө жылуулук кошкон эмеректер. Ноокат үчүн эмерек каталогу.",
+    skip: "Мазмунга өтүү", language: "Интерфейстин тили", catalog: "Каталог", cart: "Себет", location: "Ноокат",
+    heroText: "Үйүңүзгө жылуулук кошкон эмеректер.",
     heroAlt: "Терезесинен тоолор көрүнгөн, диван жана жыгач үстөл коюлган конок бөлмө",
     browse: "Каталогду көрүү", catalogTitle: "Эмеректер", catalogText: "Конок бөлмөсүнөн уктоочу бөлмөгө чейин.",
     category: "Эмеректин түрү", all: "Баары", sofas: "Дивандар", beds: "Керебеттер", wardrobes: "Шкафтар", tables: "Үстөлдөр",
@@ -11,20 +11,20 @@ const strings = {
     search: "Аталышы боюнча издөө", searchPlaceholder: "Аталышы боюнча…", sort: "Иреттөө", defaultSort: "Иреттөө",
     asc: "Арзандан кымбатка", desc: "Кымбаттан арзанга", count: n => `${n} товар`,
     noResults: "Эч нерсе табылган жок", tryAgain: "Башка аталыш менен издеп көрүңүз же чыпкаларды тазалаңыз.",
-    reset: "Чыпкаларды тазалоо", footer: "Ноокат · Эмерек демо-каталогу",
+    reset: "Чыпкаларды тазалоо", footer: "Ноокат · Эмерек каталогу",
     close: "Жабуу", view: name => `${name}: товарды көрүү`, add: "Себетке кошуу",
     addName: name => `${name}: себетке кошуу`, added: name => `${name} себетке кошулду`,
     photo: "Жалпы көрүнүш", detailPhoto: "Жакындан", size: "Өлчөмү (туурасы × тереңдиги × бийиктиги)", cm: "см",
     material: "Материалы", minus: name => `${name}: санын азайтуу`, plus: name => `${name}: санын көбөйтүү`,
     remove: "Өчүрүү", removeName: name => `${name}: себеттен өчүрүү`, removed: name => `${name} себеттен өчүрүлдү`, undo: "Кайтаруу",
-    cartEmpty: "Себет азырынча бош.", total: "Жалпы сумма", prepare: "Буйрутма даярдоо",
-    demoNotice: "Бул демо. Буйрутма жөнөтүлбөйт", orderTitle: "Буйрутманын тексти", copy: "Текстти көчүрүү",
-    whatsapp: "WhatsApp ачуу", copied: "Текст көчүрүлдү.", copyFallback: "Текст тандалды. Түзмөгүңүздүн көчүрүү буйругун колдонуңуз.",
-    orderIntro: name => `Саламатсызбы! «${name}» каталогунан төмөнкү эмеректер боюнча сурайын дедим:`, unit: "даана"
+    cartEmpty: "Себет азырынча бош.", total: "Жалпы сумма", orderSummary: "Буйрутма", continueShopping: "Каталогго кайтуу",
+    orderNote: "WhatsApp’та билдирүүнү текшерип, жөнөтүңүз.", orderTitle: "Буйрутманын тексти", copy: "Текстти көчүрүү",
+    whatsapp: "WhatsApp аркылуу буйрутма берүү", copied: "Текст көчүрүлдү.", copyFallback: "Текст тандалды. Түзмөгүңүздүн көчүрүү буйругун колдонуңуз.",
+    orderIntro: name => `Саламатсызбы! «${name}» каталогунан төмөнкү эмеректерге буйрутма бергим келет:`, unit: "даана"
   },
   ru: {
-    skip: "К содержимому", language: "Язык интерфейса", catalog: "Каталог", cart: "Корзина", demo: "Демо-каталог",
-    heroText: "Мебель, с которой дома теплее. Каталог для Нооката.",
+    skip: "К содержимому", language: "Язык интерфейса", catalog: "Каталог", cart: "Корзина", location: "Ноокат",
+    heroText: "Мебель, с которой дома теплее.",
     heroAlt: "Гостиная с диваном и деревянным столом, за окном видны горы",
     browse: "Смотреть каталог", catalogTitle: "Мебель", catalogText: "От гостиной до спальни.",
     category: "Категория мебели", all: "Всё", sofas: "Диваны", beds: "Кровати", wardrobes: "Шкафы", tables: "Столы",
@@ -33,16 +33,16 @@ const strings = {
     asc: "Сначала дешевле", desc: "Сначала дороже",
     count: n => `${n} ${{one: "товар", few: "товара", many: "товаров"}[new Intl.PluralRules("ru").select(n)]}`,
     noResults: "Ничего не найдено", tryAgain: "Попробуйте другое название или сбросьте фильтры.",
-    reset: "Сбросить фильтры", footer: "Ноокат · Демо-каталог мебели",
+    reset: "Сбросить фильтры", footer: "Ноокат · Каталог мебели",
     close: "Закрыть", view: name => `Посмотреть товар «${name}»`, add: "В корзину",
     addName: name => `Добавить «${name}» в корзину`, added: name => `«${name}» в корзине`,
     photo: "Общий вид", detailPhoto: "Крупный план", size: "Размеры (ширина × глубина × высота)", cm: "см",
     material: "Материал", minus: name => `Уменьшить количество «${name}»`, plus: name => `Увеличить количество «${name}»`,
     remove: "Удалить", removeName: name => `Удалить «${name}» из корзины`, removed: name => `«${name}» удалён из корзины`, undo: "Вернуть",
-    cartEmpty: "Корзина пока пуста.", total: "Итого", prepare: "Подготовить заявку",
-    demoNotice: "Это демо. Заявка не отправляется", orderTitle: "Текст заявки", copy: "Скопировать текст",
-    whatsapp: "Открыть WhatsApp", copied: "Текст скопирован.", copyFallback: "Текст выделен. Скопируйте его средствами устройства.",
-    orderIntro: name => `Здравствуйте! Меня интересует мебель из каталога «${name}»:`, unit: "шт."
+    cartEmpty: "Корзина пока пуста.", total: "Итого", orderSummary: "Ваш заказ", continueShopping: "Вернуться в каталог",
+    orderNote: "Проверьте сообщение и отправьте его в WhatsApp.", orderTitle: "Текст заявки", copy: "Скопировать текст",
+    whatsapp: "Заказать в WhatsApp", copied: "Текст скопирован.", copyFallback: "Текст выделен. Скопируйте его средствами устройства.",
+    orderIntro: name => `Здравствуйте! Хочу заказать мебель из каталога «${name}»:`, unit: "шт."
   }
 };
 
@@ -68,7 +68,6 @@ const maxQuantity = 99;
 let language = storage.get("language") === "ru" ? "ru" : "ky";
 let t = strings[language];
 let category = "all";
-let orderOpen = false;
 let undo = null;
 let toastTimer;
 let activeProduct;
@@ -268,7 +267,7 @@ function cartRow(product, quantity) {
   });
   controls.append(minus, node("span", "", number.format(quantity)), plus, remove);
   copy.append(node("h3", "", name), node("p", "money", price(product.price * quantity)), controls);
-  row.append(image(product.images[0], "", 60), copy);
+  row.append(image(product.images[0], "", 112), copy);
   return row;
 }
 
@@ -287,6 +286,8 @@ function renderCart() {
   }
   $("#basket-count").textContent = number.format(count);
   $("[data-open-cart]").setAttribute("aria-label", `${t.cart}, ${t.count(count)}`);
+  $("#cart-item-count").textContent = count ? t.count(count) : "";
+  $("#continue-shopping").hidden = Boolean(count);
   if (undo) {
     const message = node("div", "cart-buttons");
     const status = node("span", "", t.removed(productName(undo.product)));
@@ -300,16 +301,16 @@ function renderCart() {
     }));
     rows.push(message);
   }
-  if (!count) rows.push(node("p", "", t.cartEmpty));
+  if (!count) rows.push(node("p", "cart-empty", t.cartEmpty));
   $("#cart-items").replaceChildren(...rows);
   $("#cart-summary").hidden = !count;
   $("#total").textContent = price(total);
-  $("#order").hidden = !count || !orderOpen;
   $("#copy-status").textContent = "";
   $("#order-text").value = [t.orderIntro(shop.name), "", ...lines, "", `${t.total}: ${price(total)}`].join("\n");
   const whatsapp = $("#whatsapp");
   const contact = String(shop.whatsapp).replace(/[\s()+-]/g, "");
   whatsapp.hidden = !/^[1-9]\d{7,14}$/.test(contact);
+  $("#order-note").hidden = whatsapp.hidden;
   if (whatsapp.hidden) whatsapp.removeAttribute("href");
   else whatsapp.href = `https://wa.me/${contact}?text=${encodeURIComponent($("#order-text").value)}`;
 }
@@ -342,16 +343,16 @@ $("#reset").addEventListener("click", () => {
   $("#query").focus();
 });
 $("[data-open-cart]").addEventListener("click", () => {
-  orderOpen = false;
+  $("#order").open = false;
   undo = null;
   renderCart();
   cartDialog.showModal();
 });
 $$("[data-close]").forEach(control => control.addEventListener("click", () => control.closest("dialog").close()));
-$("#prepare").addEventListener("click", () => {
-  orderOpen = true;
-  $("#order").hidden = false;
-  $("#order-title").focus();
+$("#continue-shopping").addEventListener("click", () => {
+  cartDialog.close();
+  $("#catalog").scrollIntoView();
+  $("#catalog-title").focus({preventScroll: true});
 });
 $("#copy").addEventListener("click", copyOrder);
 setLanguage(language);
