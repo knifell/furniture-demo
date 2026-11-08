@@ -122,12 +122,8 @@ dialog::backdrop { background: #1d2a22aa; }
 .total { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 4px 8px; margin-top: 12px; padding-block: 12px 16px; border-top: 1px solid var(--line); font-variant-numeric: tabular-nums; }
 .total strong { font-size: 1.23rem; }
 .full { width: 100%; }
-.notice, #copy-status { color: var(--muted); margin-top: 8px; font-size: .88rem; }
-.order { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 13px; }
-.order summary { display: list-item; cursor: pointer; min-height: 44px; padding-block: 9px; font-weight: 640; }
-.order summary:hover { text-decoration: underline; }
-.order textarea { display: block; width: 100%; margin-top: 9px; padding: 10px; background: var(--paper); border: 1px solid #a3a593; border-radius: 5px; resize: vertical; }
-.order button { margin-top: 9px; }
+.notice { color: var(--muted); margin-top: 8px; font-size: .88rem; }
+#whatsapp svg { flex: none; }
 .toast:not(:empty) { position: fixed; z-index: 5; bottom: max(16px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100% - 30px); background: var(--ink); color: var(--white); border-radius: 6px; padding: 10px 16px; }
 .detail-feedback:not(:empty) { margin: 9px 0 0; }
 @media (max-width: 1020px) {

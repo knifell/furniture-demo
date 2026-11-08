@@ -18,8 +18,8 @@ const strings = {
     material: "Материалы", minus: name => `${name}: санын азайтуу`, plus: name => `${name}: санын көбөйтүү`,
     remove: "Өчүрүү", removeName: name => `${name}: себеттен өчүрүү`, removed: name => `${name} себеттен өчүрүлдү`, undo: "Кайтаруу",
     cartEmpty: "Себет азырынча бош.", total: "Жалпы сумма", orderSummary: "Буйрутма", continueShopping: "Каталогго кайтуу",
-    orderNote: "WhatsApp’та билдирүүнү текшерип, жөнөтүңүз.", orderTitle: "Буйрутманын тексти", copy: "Текстти көчүрүү",
-    whatsapp: "WhatsApp аркылуу буйрутма берүү", copied: "Текст көчүрүлдү.", copyFallback: "Текст тандалды. Түзмөгүңүздүн көчүрүү буйругун колдонуңуз.",
+    orderNote: "Даяр буйрутма WhatsApp чатында ачылат.",
+    whatsapp: "WhatsApp аркылуу буйрутма берүү",
     orderIntro: name => `Саламатсызбы! «${name}» каталогунан төмөнкү эмеректерге буйрутма бергим келет:`, unit: "даана"
   },
   ru: {
@@ -40,8 +40,8 @@ const strings = {
     material: "Материал", minus: name => `Уменьшить количество «${name}»`, plus: name => `Увеличить количество «${name}»`,
     remove: "Удалить", removeName: name => `Удалить «${name}» из корзины`, removed: name => `«${name}» удалён из корзины`, undo: "Вернуть",
     cartEmpty: "Корзина пока пуста.", total: "Итого", orderSummary: "Ваш заказ", continueShopping: "Вернуться в каталог",
-    orderNote: "Проверьте сообщение и отправьте его в WhatsApp.", orderTitle: "Текст заявки", copy: "Скопировать текст",
-    whatsapp: "Заказать в WhatsApp", copied: "Текст скопирован.", copyFallback: "Текст выделен. Скопируйте его средствами устройства.",
+    orderNote: "Откроется чат с готовым заказом.",
+    whatsapp: "Заказать через WhatsApp",
     orderIntro: name => `Здравствуйте! Хочу заказать мебель из каталога «${name}»:`, unit: "шт."
   }
 };
@@ -305,30 +305,16 @@ function renderCart() {
   $("#cart-items").replaceChildren(...rows);
   $("#cart-summary").hidden = !count;
   $("#total").textContent = price(total);
-  $("#copy-status").textContent = "";
-  $("#order-text").value = [t.orderIntro(shop.name), "", ...lines, "", `${t.total}: ${price(total)}`].join("\n");
   const whatsapp = $("#whatsapp");
   const contact = String(shop.whatsapp).replace(/[\s()+-]/g, "");
-  whatsapp.hidden = !/^[1-9]\d{7,14}$/.test(contact);
+  whatsapp.hidden = !count || !/^[1-9]\d{7,14}$/.test(contact);
   $("#order-note").hidden = whatsapp.hidden;
-  if (whatsapp.hidden) whatsapp.removeAttribute("href");
-  else whatsapp.href = `https://wa.me/${contact}?text=${encodeURIComponent($("#order-text").value)}`;
-}
-
-async function copyOrder() {
-  const message = $("#order-text");
-  let copied = false;
-  try {
-    await navigator.clipboard.writeText(message.value);
-    copied = true;
-  } catch {
-    message.focus();
-    message.select();
-    try { copied = document.execCommand("copy"); }
-    catch { /* The selection remains available for manual copying. */ }
-    if (copied) $("#copy").focus();
+  if (whatsapp.hidden) {
+    whatsapp.removeAttribute("href");
+  } else {
+    const order = [t.orderIntro(shop.name), "", ...lines, "", `${t.total}: ${price(total)}`].join("\n");
+    whatsapp.href = `https://wa.me/${contact}?text=${encodeURIComponent(order)}`;
   }
-  $("#copy-status").textContent = copied ? t.copied : t.copyFallback;
 }
 
 $$("[data-lang]").forEach(control => control.addEventListener("click", () => setLanguage(control.dataset.lang)));
@@ -343,7 +329,6 @@ $("#reset").addEventListener("click", () => {
   $("#query").focus();
 });
 $("[data-open-cart]").addEventListener("click", () => {
-  $("#order").open = false;
   undo = null;
   renderCart();
   cartDialog.showModal();
@@ -354,5 +339,4 @@ $("#continue-shopping").addEventListener("click", () => {
   $("#catalog").scrollIntoView();
   $("#catalog-title").focus({preventScroll: true});
 });
-$("#copy").addEventListener("click", copyOrder);
 setLanguage(language);
