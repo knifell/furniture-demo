@@ -91,8 +91,8 @@ h1, h2, h3 { text-wrap: balance; overflow-wrap: anywhere; }
 .footer p, .footer a { font-size: .88rem; }
 dialog { width: min(760px, 100% - 28px); max-height: calc(100dvh - 28px); padding: 0; border: 1px solid var(--line); border-radius: 10px; background: var(--white); color: var(--ink); overscroll-behavior: contain; }
 dialog::backdrop { background: #1d2a22aa; }
-.cart-dialog { width: min(980px, 100% - 32px); }
-.cart-dialog .dialog-header { padding: 19px clamp(16px, 3vw, 34px); }
+.cart-dialog { width: min(980px, 100% - 32px); scroll-padding-top: 96px; }
+.cart-dialog .dialog-header { position: sticky; z-index: 1; top: 0; padding: 19px clamp(16px, 3vw, 34px); background: var(--white); }
 .cart-dialog .dialog-header h2 { font-size: clamp(2.1rem, 4vw, 3rem); letter-spacing: -.045em; }
 .dialog-header { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 14px 22px; border-bottom: 1px solid var(--line); }
 .dialog-header h2 { font: 400 clamp(1.7rem, 5vw, 2.25rem)/1.1 var(--serif); }
@@ -158,6 +158,7 @@ dialog::backdrop { background: #1d2a22aa; }
   .detail { grid-template-columns: 1fr; gap: 13px; padding: 14px; }
   .detail-image { max-height: 35dvh; object-fit: contain; }
   .dialog-header { padding: 10px 14px; }
+  .cart-dialog .dialog-header { padding: 11px 14px; }
   .cart-content { grid-template-columns: 1fr; padding-inline: 14px; gap: 18px; }
   .cart-row { grid-template-columns: 76px minmax(0, 1fr); gap: 12px; }
 }
