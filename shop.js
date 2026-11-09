@@ -2,7 +2,7 @@
 
 const shop = {
   name: "Жайлуу Үй",
-  whatsapp: "",
+  whatsapp: "996999170013",
   products: [
     {
       id: "arsa", category: "sofas", price: 33000, images: ["sofa-arsa.jpg", "sofa-arsa-detail.jpg"],
